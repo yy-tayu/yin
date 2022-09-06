@@ -3,3 +3,4 @@
 3. Put a button next to the video and click it to full screen.
 4. After the full screen, move the mouse to the top of the screen for 2 seconds, and draw an exit full screen button on it.
 5. The console prints the coordinates of the mouse on the video, but does not print outside the video
+6. The console prints keyboard events, except for special keys such as F5, and prints the coordinates of the mouse double-click scroll event on the video.
