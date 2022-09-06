@@ -56,15 +56,20 @@
         </video>
         <button id="full">全屏</button>
     </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./data.json"></script>
     <script>
+
         var video = document.querySelector('video');
         video.play();
         // 根据json数据显示video的宽高
-        video.addEventListener('canplay', function () {
-            this.width = data.width;
-            this.height = data.height;
-        });
+        $.getJSON("./data.json", function (data) {
+            console.log(data);
+            video.addEventListener('canplay', function () {
+                this.width = data.width;
+                this.height = data.height;
+            });
+        })
         // 点击按钮全屏播放
         var btnFull = document.getElementById("full");
         btnFull.onclick = () => {
