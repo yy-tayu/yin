@@ -105,6 +105,16 @@
             let y = e.clientY;
             console.log("鼠标在video上双击的位置:", x, y);
         })
+        // mouse button
+        video.addEventListener("mousedown", (e) => {
+            if (e.button == 2) {
+                console.log("你点了右键");
+            } else if (e.button == 0) {
+                console.log("你点了左键");
+            } else if (e.button == 1) {
+                console.log("你点了滚轮");
+            }
+        })
         // 滚动事件
         video.addEventListener("mousewheel", (e) => {
             let x = e.clientX;
