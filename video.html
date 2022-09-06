@@ -3,8 +3,37 @@
 
 <head>
     <style>
-        /* 所有控件 */
-        video::-webkit-media-controls-enclosure {
+        /* 播放按钮 */
+        video::-webkit-media-controls-play-button {
+            display: none;
+        }
+
+        /* 进度条 */
+        video::-webkit-media-controls-timeline {
+            display: none;
+        }
+
+        /* 观看的当前时间 */
+        video::-webkit-media-controls-current-time-display {
+            display: none;
+        }
+
+        /* 剩余时间 */
+        video::-webkit-media-controls-time-remaining-display {
+            display: none;
+        }
+
+        /* 音量按钮 */
+        video::-webkit-media-controls-mute-button {
+            display: none;
+        }
+
+        video::-webkit-media-controls-toggle-closed-captions-button {
+            display: none;
+        }
+
+        /* 音量的控制条 */
+        video::-webkit-media-controls-volume-slider {
             display: none;
         }
     </style>
@@ -12,7 +41,8 @@
 
 <body>
     <div class="warp" autoplay="autoplay">
-        <video id="video" muted="muted" src="./mp4/mov_bbb.mp4" loop>
+        <video id="video" muted="muted" src="./mp4/mov_bbb.mp4" loop controlsList="nodownload noplaybackrate"
+            disablePictureInPicture>
         </video>
         <button id="full">全屏</button>
     </div>
