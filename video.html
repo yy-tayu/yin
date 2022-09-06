@@ -3,6 +3,12 @@
 
 <head>
     <style>
+        *,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
         /* 播放按钮 */
         video::-webkit-media-controls-play-button {
             display: none;
@@ -36,6 +42,10 @@
         video::-webkit-media-controls-volume-slider {
             display: none;
         }
+
+        video {
+            object-fit: fill;
+        }
     </style>
 </head>
 
@@ -60,6 +70,12 @@
         btnFull.onclick = () => {
             video.requestFullscreen()
         }
+        // 鼠标在video上时打印位置
+        video.addEventListener("mousemove", (e) => {
+            let x = e.pageX;
+            let y = e.pageY;
+            console.log(x, y);
+        })
     </script>
 
 </body>
