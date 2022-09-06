@@ -8,6 +8,7 @@
     <div class="warp" autoplay="autoplay">
         <video id="video" muted="muted" src="./mp4/mov_bbb.mp4" loop>
         </video>
+        <button id="full">全屏</button>
     </div>
     <script src="./data.json"></script>
     <script>
@@ -18,6 +19,11 @@
             this.width = data.width;
             this.height = data.height;
         });
+        // 点击按钮全屏播放
+        var btnFull = document.getElementById("full");
+        btnFull.onclick = () => {
+            video.webkitRequestFullScreen();
+        }
     </script>
 
 </body>
