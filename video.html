@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <style>
+        /* 所有控件 */
+        video::-webkit-media-controls-enclosure {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,7 +28,7 @@
         // 点击按钮全屏播放
         var btnFull = document.getElementById("full");
         btnFull.onclick = () => {
-            video.webkitRequestFullScreen();
+            video.requestFullscreen()
         }
     </script>
 
