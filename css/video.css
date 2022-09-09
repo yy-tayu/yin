@@ -4,6 +4,13 @@ body {
     padding: 0;
 }
 
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 /* 播放按钮 */
 video::-webkit-media-controls-play-button {
     display: none;
@@ -53,27 +60,37 @@ video {
 }
 
 .tabs h3 {
+    color: rgb(255, 255, 255);
     padding: 10px;
 }
 
 .tabs .list {
     width: 300px;
-    background-color: #ddd;
-    border-left: 1px solid #ddd;
+    background-color: rgb(0, 0, 0);
 }
 
 .tabs .list a {
     height: 60px;
     line-height: 60px;
     font-size: 20px;
-    color: #000;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     padding: 10px;
     display: block;
+    text-decoration: none
 }
 
 .tabs .list a:hover {
-    background-color: rgb(211, 211, 212);
+    background-color: rgb(23, 23, 24);
+}
+
+.tabs .image {
+    flex: 1;
+}
+
+.tabs img {
+    width: 100%;
+    height: 1080px;
 }
 
 .loading {
@@ -94,34 +111,12 @@ video {
     bottom: 0;
     margin: auto;
     color: #fff;
+    text-align: center;
     animation: loading 0s ease-in 5s forwards
-}
-
-@keyframes turn {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-
-    25% {
-        -webkit-transform: rotate(90deg);
-    }
-
-    50% {
-        -webkit-transform: rotate(180deg);
-    }
-
-    75% {
-        -webkit-transform: rotate(270deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
 }
 
 .loading-img img {
     width: 100%;
-    animation: turn 1.5s linear infinite;
 }
 
 @keyframes loading {
@@ -130,5 +125,74 @@ video {
         height: 0;
         overflow: hidden;
     }
+}
 
+/* login */
+#login {
+    background: repeating-linear-gradient(45deg,
+            #EAD7EA 0, #EAD7EA 15%,
+            #ccc7e8 30%, #ccc7e8 45%,
+            #EAD7EA 60%);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-con {
+    padding: 50px 20px;
+    background-color: white;
+    border-radius: 25px;
+    width: 70%;
+    max-width: 500px;
+}
+
+.login-con p {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.login-con span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.login-con input {
+    width: 50%;
+    min-width: 250px;
+    display: block;
+    margin: 10px auto;
+    height: 50px;
+    line-height: 50px;
+    border: none;
+    background-color: #f4e8f4;
+    padding: 0 20px;
+    border-radius: 25px;
+    outline: 0;
+}
+
+.login-con input::placeholder {
+    color: #a19bc4;
+}
+
+.login-con button {
+    width: 50%;
+    min-width: 250px;
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background: #7062D1;
+    color: #fff;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    outline: 0;
+}
+
+.login-con button:hover {
+    filter: brightness(.8);
+    cursor: pointer;
 }

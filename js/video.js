@@ -85,6 +85,7 @@ let screenStream;
 $(function () {
     setTimeout(function () {
         $("#video").show();
+        $(".loading").removeClass("loading");
         const config = {
             audio: {
                 source: 'screen-cast',
