@@ -5,3 +5,4 @@
 5. The console prints the coordinates of the mouse on the video, but does not print outside the video
 6. The console prints keyboard events, except for special keys such as F5, and prints the coordinates of the mouse double-click scroll event on the video.
 7. Introduce soketio, link the signaling server port 8095, and set a breakpoint in the signaling server to enter the callback function of the connection. Of course you can do emit authentication as well.
+8. Separate the files, js is proposed separately to form a specification, css, js, and images are all stored in folders.
