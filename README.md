@@ -9,3 +9,4 @@
 9. Make a fake login page, enter the fixed username and password to jump to the next page.
 10. Make a fake device list page, you can refer to Sunflower, which will be displayed after successful login.
 11. After selecting the device, jump to a pure black page. The center of the page shows that it is being remote. After 5 seconds, it jumps to your mp4 playing page.
+12. Replace the mp4 with owt, and delete the code for pushing the stream from the sample I gave you, just leave the display.

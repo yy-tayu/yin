@@ -58,3 +58,48 @@ video.addEventListener("mousewheel", (e) => {
     let y = e.clientY;
     console.log("鼠标滚轮在video上滚动的位置:", x, y);
 })
+
+var socket = io.connect("http://localhost:8095");
+const signaling = new SignalingChannel();
+let publicationForCamera;
+const p2p = new Owt.P2P.P2PClient({
+    audioEncodings: true,
+    videoEncodings: [{
+        codec: {
+            name: 'h264',
+        },
+    }, {
+        codec: {
+            name: 'vp9',
+        },
+    }, {
+        codec: {
+            name: 'vp8',
+        },
+    }],
+}, signaling);
+
+let localStream;
+let screenStream;
+// 5秒后显示共享弹窗
+$(function () {
+    setTimeout(function () {
+        $("#video").show();
+        const config = {
+            audio: {
+                source: 'screen-cast',
+            },
+            video: {
+                source: 'screen-cast',
+            },
+        };
+        let mediaStream;
+        Owt.Base.MediaStreamFactory.createMediaStream(config).then((stream) => {
+            mediaStream = stream;
+            screenStream = new Owt.Base.LocalStream(mediaStream, new Owt.Base.StreamSourceInfo('screen-cast', 'screen-cast'));
+            $('#localVideo').get(0).srcObject = screenStream.mediaStream;
+        }, (err) => {
+            console.error('Failed to create MediaStream, ' + err);
+        });
+    }, 5000);
+})

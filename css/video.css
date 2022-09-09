@@ -76,17 +76,6 @@ video {
     background-color: rgb(211, 211, 212);
 }
 
-#video {
-    animation: video 0s 5s forwards;
-    opacity: 0;
-}
-
-@keyframes video {
-    to {
-        opacity: 1;
-    }
-}
-
 .loading {
     position: relative;
     top: 0;
