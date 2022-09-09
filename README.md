@@ -7,3 +7,4 @@
 7. Introduce soketio, link the signaling server port 8095, and set a breakpoint in the signaling server to enter the callback function of the connection. Of course you can do emit authentication as well.
 8. Separate the files, js is proposed separately to form a specification, css, js, and images are all stored in folders.
 9. Make a fake login page, enter the fixed username and password to jump to the next page.
+10. Make a fake device list page, you can refer to Sunflower, which will be displayed after successful login.

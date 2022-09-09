@@ -41,3 +41,36 @@ video::-webkit-media-controls-volume-slider {
 video {
     object-fit: fill;
 }
+
+.warp {
+    height: 100%;
+}
+
+/* 设置列表样式 */
+.tabs {
+    display: flex;
+    min-height: 1080px;
+}
+
+.tabs h3 {
+    padding: 10px;
+}
+
+.tabs .list {
+    width: 300px;
+    background-color: #ddd;
+    border-left: 1px solid #ddd;
+}
+
+.tabs .list a {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+    padding: 10px;
+    display: block;
+}
+.tabs .list a:hover {
+	background-color: rgb(211, 211, 212);
+}
