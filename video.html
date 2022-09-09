@@ -1,131 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <style>
-        *,
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        /* 播放按钮 */
-        video::-webkit-media-controls-play-button {
-            display: none;
-        }
-
-        /* 进度条 */
-        video::-webkit-media-controls-timeline {
-            display: none;
-        }
-
-        /* 观看的当前时间 */
-        video::-webkit-media-controls-current-time-display {
-            display: none;
-        }
-
-        /* 剩余时间 */
-        video::-webkit-media-controls-time-remaining-display {
-            display: none;
-        }
-
-        /* 音量按钮 */
-        video::-webkit-media-controls-mute-button {
-            display: none;
-        }
-
-        video::-webkit-media-controls-toggle-closed-captions-button {
-            display: none;
-        }
-
-        /* 音量的控制条 */
-        video::-webkit-media-controls-volume-slider {
-            display: none;
-        }
-
-        video {
-            object-fit: fill;
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>WebRTC P2P Direct Call Sample</title>
 </head>
 
 <body>
-    <div class="warp">
-        <video id="video" muted="muted" src="./mp4/mov_bbb.mp4" loop controlsList="nodownload noplaybackrate"
-            disablePictureInPicture autoplay>
-        </video>
-        <button id="full">全屏</button>
-    </div>
-    <script src="socket.io.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./index.js"></script>
-    <script>
-        var video = document.querySelector('video');
-        // 根据json数据显示video的宽高
-        $.getJSON("./data.json", function (data) {
-            console.log(data);
-            video.addEventListener('canplay', function () {
-                this.width = data.width;
-                this.height = data.height;
-            });
-        })
-        // 点击按钮全屏播放
-        var btnFull = document.getElementById("full");
-        btnFull.onclick = () => {
-            video.requestFullscreen()
-        }
-        // 鼠标在video上时打印位置
-        video.addEventListener("mousemove", (e) => {
-            let x = e.clientX;
-            let y = e.clientY;
-            console.log("鼠标在video上的位置:", x, y);
-        })
-        // 监听键盘事件
-        window.addEventListener("keydown", (event) => {
-            if (event.key == "F5") {
-                return false;
-            } else {
-                console.log('按下的键盘是: ' + event.key);
-            }
-        })
-        //单击延时触发
-        var clickTimeId;
-        // 单击坐标
-        video.addEventListener("click", (e) => {
-            // 取消上次延时未执行的方法
-            clearTimeout(clickTimeId);
-            //执行延时
-            clickTimeId = setTimeout(function () {
-                let x = e.clientX;
-                let y = e.clientY;
-                console.log("鼠标在video上点击的位置:", x, y);
-            }, 300);
-        })
-        // 双击坐标
-        video.addEventListener("dblclick", (e) => {
-            // 取消上次延时未执行的方法
-            clearTimeout(clickTimeId);
-            let x = e.clientX;
-            let y = e.clientY;
-            console.log("鼠标在video上双击的位置:", x, y);
-        })
-        // mouse button
-        video.addEventListener("mousedown", (e) => {
-            if (e.button == 2) {
-                console.log("你点了右键");
-            } else if (e.button == 0) {
-                console.log("你点了左键");
-            } else if (e.button == 1) {
-                console.log("你点了滚轮");
-            }
-        })
-        // 滚动事件
-        video.addEventListener("mousewheel", (e) => {
-            let x = e.clientX;
-            let y = e.clientY;
-            console.log("鼠标滚轮在video上滚动的位置:", x, y);
-        })
-    </script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+    type="text/javascript"></script>
+  <script>
+    var socket =  io.connect("http://localhost:8095");
+    socket.on('connect', function() {
+        reconnectTimes = 0;
+        socket.emit('authentication', {token: "testclient"}, (data) => {
+          if (data.uid) {
+            console.log('Authentication passed. User ID: ' + data.uid);
+          } else {
+            console.error('Faild to connect to Socket.IO server.');
+          }
+        });
+    });
+  </script>
 </body>
-
-</html>
