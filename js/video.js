@@ -7,11 +7,6 @@ $.getJSON("./api/data.json", function (data) {
         this.height = data.height;
     });
 })
-// 点击按钮全屏播放
-var btnFull = document.getElementById("full");
-btnFull.onclick = () => {
-    video.requestFullscreen()
-}
 // 鼠标在video上时打印位置
 video.addEventListener("mousemove", (e) => {
     let x = e.clientX;
