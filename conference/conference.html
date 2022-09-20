@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3659227_raee6f23ku.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="meeting">
+        <div class="Box">
+            <button class="btn current">首页</button>
+            <button class="btn">会议列表</button>
+        </div>
+        <div id="box">
+            <div class="con launch" style="display:block">
+                <div id="open">
+                    <div class="start">
+                        <div class="iconfont icon-shipin"></div>
+                    </div>
+                    <span class="text">发起视频</span>
+                </div>
+            </div>
+            <div class="con">
+                <div class="btns">
+                    <div class="tab">
+                        <button class="bigBtn current">即将召开的会议</button>
+                        <button class="bigBtn">已结束的会议</button>
+                    </div>
+                    <button id="open">发起会议</button>
+                </div>
+                <div id="content">
+                    <div class="tables" style="display: block;">
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>开始时间</th>
+                                    <th>会议主题</th>
+                                    <th>会议号</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2022/09/19 18：30</td>
+                                    <td>我的会议</td>
+                                    <td>561 948 197</td>
+                                    <td><button class="smallBtn join">加入会议</button></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>2022/09/19 18：30</td>
+                                    <td>我的会议</td>
+                                    <td>561 948 197</td>
+                                    <td><button class="smallBtn join">加入会议</button></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>2022/09/19 18：30</td>
+                                    <td>我的会议</td>
+                                    <td>561 948 197</td>
+                                    <td><button class="smallBtn join">加入会议</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tables">
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>开始时间</th>
+                                    <th>会议主题</th>
+                                    <th>会议号</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2022/09/19 18：30</td>
+                                    <td>我的会议</td>
+                                    <td>561 948 197</td>
+                                    <td><button class="smallBtn">删除</button></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>2022/09/19 18：30</td>
+                                    <td>我的会议</td>
+                                    <td>561 948 197</td>
+                                    <td><button class="smallBtn">删除</button></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>2022/09/19 18：30</td>
+                                    <td>我的会议</td>
+                                    <td>561 948 197</td>
+                                    <td><button class="smallBtn">删除</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 遮罩 -->
+        <div id="hidden"></div>
+        <!-- 发起视频弹窗 -->
+        <div id="start-video">
+            <h3>发起视频</h3>
+            <strong id="close">关闭</strong>
+            <span>会议名称：<input type="text" placeholder="输入名称" id="username"></span>
+            <span>入会密码：<input type="password" placeholder="输入密码" id="password"></span>
+            <input type="button" value="登录" id="login">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script src="js/conference.js"></script>
+</body>
+
+</html>
