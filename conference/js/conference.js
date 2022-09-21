@@ -1,7 +1,6 @@
 var socket = io.connect("http://localhost:8095");
 var box = document.getElementById('box');
 var btns = document.querySelectorAll(".btn");;
-// var btns = document.getElementsByTagName('button');
 var con = box.querySelectorAll('.con');
 for (var i = 0; i < btns.length; i++) {
     var btn = btns[i];
@@ -57,5 +56,26 @@ login.onclick = function () {
     let password = document.querySelector("#password").value;
     if (username == "admin" && password == "123") {
         self.location = "meeting.html";
+        var tab = document.getElementsByTagName("table")[0];
+        tab.innerHTML += `<tr>
+        <td>2022/09/19 18：30</td>
+        <td>我的会议</td>
+        <td>561 948 197</td>
+        <td><button class="smallBtn join"><a href="meeting.html">加入会议</a></button></td>
+    </tr>`
+    } else {
+        alert("密码错误，请重新输入密码")
     }
+}
+// 删除
+var del = document.querySelector(".delete")
+del.onclick = function () {
+    var tr = document.querySelectorAll("#table tr")[1];
+    tr.remove();
+}
+// 发起会议
+var openBtn = document.querySelector(".btns #open")
+openBtn.onclick = function () {
+    startVideo.style.display = 'flex';
+    hidden.style.display = 'block';
 }

@@ -5,6 +5,12 @@ body {
     overflow: hidden;
 }
 
+/* 修改a标签默认样式 */
+a {
+    text-decoration: none;
+    color: #000;
+}
+
 .Box {
     overflow: hidden;
     background-color: rgb(211, 204, 204);
@@ -55,7 +61,7 @@ body {
     margin-bottom: 10px;
 }
 
-.iconfont {
+.start .icon-shipin {
     font-size: 50px;
     color: #fff;
 }
@@ -217,4 +223,30 @@ table {
 .list a:hover {
     background-color: rgb(170, 169, 169);
 
+}
+
+.hang-up {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.iconBtn {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.hang-up i {
+    font-size: 50px;
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+.hang-up .iconBtn:nth-of-type(3) i {
+    font-size: 65px;
+    color: red;
 }
